@@ -1,6 +1,8 @@
 import { IoIosArrowDown } from "react-icons/io";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const AddArtifacts = () => {
   const { user } = useAuth();
@@ -35,13 +37,16 @@ const AddArtifacts = () => {
     };
 
     try {
-      const { data } = await axios.post(
+      await axios.post(
         `${import.meta.env.VITE_API_URL}/historical`,
         newArtifact
       );
-      console.log(data);
+      Swal.fire({
+        title: "Historical Artifacts Successfully Add !!",
+        icon: "success",
+      });
     } catch (error) {
-      console.log(error);
+      toast.error(error.message);
     }
   };
 

@@ -40,7 +40,7 @@ const Navbar = () => {
 
             <ul
               tabIndex={0}
-              className="dropdown-content menu ml-12 mt-6 bg-base-100 rounded-box z-[1] w-40 p-2 shadow"
+              className="dropdown-content menu ml-12 mt-6 bg-base-100 rounded-box z-[9] w-40 p-2 shadow"
             >
               <li>
                 <NavLink
