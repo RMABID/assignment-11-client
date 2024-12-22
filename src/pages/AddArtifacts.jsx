@@ -1,13 +1,49 @@
 import { IoIosArrowDown } from "react-icons/io";
 import useAuth from "../hooks/useAuth";
+import axios from "axios";
 
 const AddArtifacts = () => {
   const { user } = useAuth();
-  const AddArtifactsHandler = (event) => {
+  const AddArtifactsHandler = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const artifactsData = Object.fromEntries(formData.entries());
-    console.log(artifactsData);
+    const {
+      name,
+      email,
+      artifact_name,
+      artifact_type,
+      created_at,
+      discovered_at,
+      discovered_by,
+      present_location,
+      historical_context,
+      artifact_image,
+    } = artifactsData;
+
+    const newArtifact = {
+      name,
+      email,
+      artifact_name,
+      artifact_type,
+      created_at,
+      discovered_at,
+      discovered_by,
+      present_location,
+      historical_context,
+      artifact_image,
+      like_count: 0,
+    };
+
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/historical`,
+        newArtifact
+      );
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -17,9 +53,10 @@ const AddArtifacts = () => {
           <h1 className="text-4xl text-center font-bold text-[#374151]">
             Add New Artifacts
           </h1>
-          <p className="md:w-6/12 px-8 my-4 font-raleway-font  mx-auto text-center">
-            It is a long established fact that a reader will be distraceted by
-            visa
+          <p className="md:w-8/12 px-8 my-8 font-raleway-font  mx-auto text-center">
+            The Historical Artifacts Tracker is a system designed to catalog,
+            monitor, and manage historical artifacts, ensuring accurate records,
+            preservation, and accessibility for research and education.
           </p>
         </div>
         <form
@@ -32,7 +69,7 @@ const AddArtifacts = () => {
             </label>
             <input
               type="text"
-              name="Artifact_Name"
+              name="artifact_name"
               placeholder="Enter country name"
               className="input input-bordered w-full"
             />
@@ -44,7 +81,7 @@ const AddArtifacts = () => {
             <div className="relative">
               <select
                 className="input input-bordered w-full"
-                name="Artifact_Type"
+                name="artifact_type"
               >
                 <option disabled selected>
                   Select Artifact Type
@@ -63,7 +100,7 @@ const AddArtifacts = () => {
             <label className="block text-sm font-medium mb-2">Created At</label>
             <input
               type="text"
-              name="Created_At"
+              name="created_at"
               placeholder="Enter Created At"
               className="input input-bordered w-full"
             />
@@ -74,7 +111,7 @@ const AddArtifacts = () => {
             </label>
             <input
               type="text"
-              name="Discovered_At"
+              name="discovered_at"
               placeholder="Enter Discovered At"
               className="input input-bordered w-full"
             />
@@ -85,7 +122,7 @@ const AddArtifacts = () => {
             </label>
             <input
               type="text"
-              name="Discovered_By"
+              name="discovered_by"
               placeholder="Enter Discovered By"
               className="input input-bordered w-full"
             />
@@ -96,7 +133,7 @@ const AddArtifacts = () => {
             </label>
             <input
               type="text"
-              name="Present_Location"
+              name="present_location"
               placeholder="Enter Present Location"
               className="input input-bordered w-full"
             />
@@ -108,10 +145,10 @@ const AddArtifacts = () => {
             <input
               type="text"
               name="name"
-              defaultValue={user?.displayName}
-              disabled
+              value={user?.displayName}
               placeholder=" Artifact adder Name"
-              className="block w-full  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+              className="input input-bordered w-full"
+              // className="block w-full  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
             />
           </div>
           <div>
@@ -121,10 +158,9 @@ const AddArtifacts = () => {
             <input
               type="email"
               name="email"
-              disabled
-              defaultValue={user?.email}
+              value={user?.email}
               placeholder=" Artifact adder Email"
-              className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+              className="input input-bordered w-full"
             />
           </div>
 
@@ -134,7 +170,7 @@ const AddArtifacts = () => {
             </label>
             <input
               type="url"
-              name="Artifact_Image"
+              name="artifact_image"
               placeholder="Enter country image"
               className="input input-bordered w-full"
             />
@@ -145,7 +181,7 @@ const AddArtifacts = () => {
               Historical Context
             </label>
             <textarea
-              name="historicalContext"
+              name="historical_context"
               className="w-full  mt-1 p-2 border rounded-md focus:ring focus:ring-blue-300"
             />
           </div>

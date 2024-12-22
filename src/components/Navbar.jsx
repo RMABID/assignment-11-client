@@ -32,10 +32,13 @@ const Navbar = () => {
           <p>Add Artifacts</p>
           <hr className="w-2/4 hidden border-none h-[1.5px] bg-gray-700  " />
         </NavLink>
-        {/* <NavLink to="/contact" className="flex flex-col items-center gap-1">
-          <p>CONTACT</p>
+        <NavLink
+          to="/my-artifacts"
+          className="flex flex-col items-center gap-1"
+        >
+          <p>My Artifacts</p>
           <hr className="w-2/4 hidden border-none h-[1.5px] bg-gray-700  " />
-        </NavLink> */}
+        </NavLink>
       </ul>
       <div className="flex items-center gap-6">
         {user ? (
