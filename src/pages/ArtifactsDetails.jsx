@@ -1,22 +1,25 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
+import { SlLike } from "react-icons/sl";
 
 const ArtifactsDetails = () => {
+  const { user } = useAuth();
   const [artifacts, setArtifacts] = useState({});
 
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchArtifacts = async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/historical/${id}`
-      );
-      setArtifacts(data);
-    };
     fetchArtifacts();
   }, [id]);
-
+  const fetchArtifacts = async () => {
+    const { data } = await axios.get(
+      `${import.meta.env.VITE_API_URL}/historical/${id}`
+    );
+    setArtifacts(data);
+  };
   const {
     artifact_name,
     artifact_type,
@@ -26,7 +29,28 @@ const ArtifactsDetails = () => {
     present_location,
     historical_context,
     artifact_image,
+    like_count,
   } = artifacts;
+
+  const likeHandler = async (id) => {
+    const userLike = {
+      name: user?.displayName,
+      email: user?.email,
+      like_id: id,
+    };
+
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/historical-like`,
+        userLike
+      );
+      fetchArtifacts();
+
+      toast.success("You have like on artifact");
+    } catch (error) {
+      toast.error(error?.response?.data);
+    }
+  };
 
   return (
     <div>
@@ -68,8 +92,19 @@ const ArtifactsDetails = () => {
             <span className="font-semibold">Historical Context : </span>
             {historical_context}
           </p>
-          <div className="flex justify-end">
-            <button className="btn w-40 bg-green-500">Like</button>
+          <div className="flex justify-between">
+            <button className="btn bg-purple-400 text-white w-32 text-lg">
+              {like_count}
+              <span>
+                <SlLike />
+              </span>{" "}
+            </button>
+            <button
+              onClick={() => likeHandler(id)}
+              className="btn w-40 bg-green-500"
+            >
+              Like
+            </button>
           </div>
         </div>
       </section>

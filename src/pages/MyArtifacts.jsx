@@ -51,65 +51,72 @@ const MyArtifacts = () => {
 
   return (
     <div>
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>Sel</th>
-              <th>Name</th>
-              <th>Artifact Type</th>
-              <th>Created At</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* row 1 */}
-            {artifacts.map((item, index) => (
-              <tr key={index}>
-                <th>{index + 1}</th>
-                <td>
-                  <div className="flex items-center gap-3">
-                    <div className="avatar">
-                      <div className="mask mask-squircle h-12 w-12">
-                        <img
-                          src={item?.artifact_image}
-                          alt="Avatar Tailwind CSS Component"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-bold">{item?.artifact_name}</div>
-                      <div className="text-sm opacity-50">
-                        {item?.present_location}
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  {item?.artifact_type}
-                  <br />
-                  <span className="badge badge-ghost badge-sm">
-                    {item?.discovered_by}
-                  </span>
-                </td>
-                <td>{item?.created_at}</td>
-                <th className="flex items-center gap-3">
-                  <Link to={`/artifacts-updated/${item?._id}`} className="btn ">
-                    <FaRegEdit />
-                  </Link>
-                  <button
-                    onClick={() => deleteHandler(item?._id)}
-                    className="btn "
-                  >
-                    <MdDeleteForever />
-                  </button>
-                </th>
+      {artifacts.length === 0 ? (
+        <h1>hi</h1>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>Sel</th>
+                <th>Name</th>
+                <th>Artifact Type</th>
+                <th>Created At</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {/* row 1 */}
+              {artifacts.map((item, index) => (
+                <tr key={index}>
+                  <th>{index + 1}</th>
+                  <td>
+                    <div className="flex items-center gap-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle h-12 w-12">
+                          <img
+                            src={item?.artifact_image}
+                            alt="Avatar Tailwind CSS Component"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="font-bold">{item?.artifact_name}</div>
+                        <div className="text-sm opacity-50">
+                          {item?.present_location}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    {item?.artifact_type}
+                    <br />
+                    <span className="badge badge-ghost badge-sm">
+                      {item?.discovered_by}
+                    </span>
+                  </td>
+                  <td>{item?.created_at}</td>
+                  <th className="flex items-center gap-3">
+                    <Link
+                      to={`/artifacts-updated/${item?._id}`}
+                      className="btn "
+                    >
+                      <FaRegEdit />
+                    </Link>
+                    <button
+                      onClick={() => deleteHandler(item?._id)}
+                      className="btn "
+                    >
+                      <MdDeleteForever />
+                    </button>
+                  </th>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };

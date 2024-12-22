@@ -10,8 +10,6 @@ const AddArtifacts = () => {
     const formData = new FormData(event.target);
     const artifactsData = Object.fromEntries(formData.entries());
     const {
-      name,
-      email,
       artifact_name,
       artifact_type,
       created_at,
@@ -23,8 +21,8 @@ const AddArtifacts = () => {
     } = artifactsData;
 
     const newArtifact = {
-      name,
-      email,
+      name: user?.displayName,
+      email: user?.email,
       artifact_name,
       artifact_type,
       created_at,
@@ -147,9 +145,10 @@ const AddArtifacts = () => {
               type="text"
               name="name"
               defaultValue={user?.displayName}
+              disabled
               placeholder=" Artifact adder Name"
-              className="input input-bordered w-full"
-              // className="block w-full  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
+              // className="input input-bordered w-full"
+              className="block w-full  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
             />
           </div>
           <div>
@@ -159,9 +158,11 @@ const AddArtifacts = () => {
             <input
               type="email"
               name="email"
+              disabled
               defaultValue={user?.email}
               placeholder=" Artifact adder Email"
-              className="input input-bordered w-full"
+              // className="input input-bordered w-full"
+              className="block w-full  px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring"
             />
           </div>
 
