@@ -2,10 +2,14 @@ import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { createUser, updatedUser, logInGoogle } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
   const registerHandler = async (event) => {
     event.preventDefault();
     const form = event.target;
@@ -17,12 +21,21 @@ const Register = () => {
     await createUser(email, password)
       .then(() => {
         updatedUser({ displayName: name, photoURL: photo })
-          .then(() => {})
+          .then(() => {
+            navigate(from, { replace: true });
+          })
           .catch(() => {});
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const googleLogin = async () => {
+    try {
+      await logInGoogle();
+      navigate(from, { replace: true });
+    } catch (error) {}
   };
 
   return (
@@ -120,7 +133,7 @@ const Register = () => {
       } */}
           <div className="flex -mt-4 text-3xl px-8 ">
             <button
-              onClick={logInGoogle}
+              onClick={googleLogin}
               className="btn w-full px-12 bg-[#D2B48C] hover:bg-[#F4F3F0] text-black "
             >
               <FcGoogle />

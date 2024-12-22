@@ -44,6 +44,7 @@ const Navbar = () => {
         {user ? (
           <div className="group cursor-pointer z-50 relative">
             <img
+            
               className="w-10 border-2 border-purple-500 h-10 overflow-auto object-cover rounded-full cursor-pointer"
               src={user?.photoURL}
               alt=""

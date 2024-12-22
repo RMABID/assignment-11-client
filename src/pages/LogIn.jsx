@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const LogIn = () => {
   const { logInUser, logInGoogle } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+  const location = useLocation();
+  const from = location?.state || "/";
+  const navigate = useNavigate();
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -15,12 +18,21 @@ const LogIn = () => {
     const password = form.password.value;
 
     logInUser(email, password)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const googleLogin = async () => {
+    try {
+      await logInGoogle();
+      navigate(from, { replace: true });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -87,7 +99,7 @@ const LogIn = () => {
           <div className="divider -mt-6 py-4">OR</div>
           <div className="flex -mt-4 text-3xl px-8 ">
             <button
-                onClick={logInGoogle}
+              onClick={googleLogin}
               className="btn w-full px-12 bg-[#D2B48C] hover:bg-[#F4F3F0] text-black "
             >
               <FcGoogle />
