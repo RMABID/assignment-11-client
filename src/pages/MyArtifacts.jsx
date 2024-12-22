@@ -4,10 +4,13 @@ import useAuth from "../hooks/useAuth";
 import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const MyArtifacts = () => {
   const { user } = useAuth();
   const [artifacts, setArtifacts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchArtifact = async () => {
@@ -37,16 +40,13 @@ const MyArtifacts = () => {
             icon: "success",
           });
           axios.delete(`${import.meta.env.VITE_API_URL}/historical/${id}`);
+          toast.success("Delete Successfully");
+          navigate("/all-artifacts");
         }
       });
     } catch (error) {
-      console.log(error);
+      toast.error(error.message);
     }
-  };
-
-  const updatedHandler = (id) => {
-    console.log(id);
-    document.getElementById("my_modal_1").showModal();
   };
 
   return (
@@ -95,12 +95,9 @@ const MyArtifacts = () => {
                 </td>
                 <td>{item?.created_at}</td>
                 <th className="flex items-center gap-3">
-                  <button
-                    onClick={() => updatedHandler(item?._id)}
-                    className="btn "
-                  >
+                  <Link to={`/artifacts-updated/${item?._id}`} className="btn ">
                     <FaRegEdit />
-                  </button>
+                  </Link>
                   <button
                     onClick={() => deleteHandler(item?._id)}
                     className="btn "

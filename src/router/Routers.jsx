@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import ArtifactsDetails from "../pages/ArtifactsDetails";
 import MyArtifacts from "../pages/MyArtifacts";
 import PrivateRoutes from "./PrivateRoutes";
+import UpdatedArtifact from "../pages/UpdatedArtifact";
 
 const Routers = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const Routers = createBrowserRouter([
       {
         path: "/artifacts-details/:id",
         element: <ArtifactsDetails></ArtifactsDetails>,
+      },
+      {
+        path: "/artifacts-updated/:id",
+        element: <UpdatedArtifact></UpdatedArtifact>,
       },
       {
         path: "/login",

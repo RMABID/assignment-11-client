@@ -15,7 +15,7 @@ const ArtifactsDetails = () => {
       setArtifacts(data);
     };
     fetchArtifacts();
-  }, []);
+  }, [id]);
 
   const {
     artifact_name,
