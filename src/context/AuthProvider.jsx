@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -16,7 +17,6 @@ const AuthProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -44,8 +44,30 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const subscribe = onAuthStateChanged(auth, async (currentUser) => {
-      setUser(currentUser);
-      setLoading(false);
+      if (currentUser?.email) {
+        setUser(currentUser);
+        setLoading(false);
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_API_URL}/jwt`,
+          { email: currentUser?.email },
+          {
+            withCredentials: true,
+          }
+        );
+
+        console.log(data);
+      } else {
+        setUser(currentUser);
+        setLoading(false);
+        const { data } = await axios.get(
+          `${import.meta.env.VITE_API_URL}/logout`,
+          {
+            withCredentials: true,
+          }
+        );
+
+        console.log(data);
+      }
     });
 
     return () => {

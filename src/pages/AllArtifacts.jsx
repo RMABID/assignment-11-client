@@ -1,15 +1,14 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import ArtifactCard from "../components/ArtifactCard";
 import SearchBar from "../components/SearchBar";
+import { axiosSecure } from "../hooks/useAxios";
 
 const AllArtifacts = () => {
   const [artifacts, setArtifacts] = useState([]);
+  console.log(artifacts);
   useEffect(() => {
     const fetchAllArtifacts = async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/historical`
-      );
+      const { data } = await axiosSecure.get(`/all-historical-data`);
       setArtifacts(data);
     };
     fetchAllArtifacts();

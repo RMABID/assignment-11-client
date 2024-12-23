@@ -58,6 +58,10 @@ const Routers = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "*",
+    element: <div>hi</div>,
+  },
 ]);
 
 export default Routers;

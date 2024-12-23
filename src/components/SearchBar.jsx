@@ -1,14 +1,14 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { CiSearch } from "react-icons/ci";
+import { axiosSecure } from "../hooks/useAxios";
 
 const SearchBar = ({ setArtifacts }) => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchSearchData = async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/historical?search=${search}`
+      const { data } = await axiosSecure.get(
+        `/all-historical-data?search=${search}`
       );
       setArtifacts(data);
     };
