@@ -14,6 +14,10 @@ import LikedArtifacts from "../pages/LikedArtifacts";
 const Routers = createBrowserRouter([
   {
     path: "/",
+    element: <Home></Home>,
+  },
+  {
+    path: "/",
     element: <MainLayout></MainLayout>,
     children: [
       {
@@ -53,10 +57,6 @@ const Routers = createBrowserRouter([
         element: <Register></Register>,
       },
     ],
-  },
-  {
-    path: "/home",
-    element: <Home></Home>,
   },
 ]);
 

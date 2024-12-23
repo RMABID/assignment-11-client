@@ -8,6 +8,7 @@ import { SlLike } from "react-icons/sl";
 const ArtifactsDetails = () => {
   const { user } = useAuth();
   const [artifacts, setArtifacts] = useState({});
+  const [like, setLike] = useState();
 
   const { id } = useParams();
 
@@ -21,6 +22,7 @@ const ArtifactsDetails = () => {
     setArtifacts(data);
   };
   const {
+    _id,
     artifact_name,
     artifact_type,
     created_at,
@@ -32,10 +34,11 @@ const ArtifactsDetails = () => {
     like_count,
   } = artifacts;
 
-  const likeHandler = async (id) => {
+  const likeHandler = async () => {
     const userLike = {
       name: user?.displayName,
       email: user?.email,
+      like_status: like,
       like_id: id,
     };
 
@@ -51,6 +54,8 @@ const ArtifactsDetails = () => {
       toast.error(error?.response?.data);
     }
   };
+
+  console.log(like);
 
   return (
     <div>
@@ -99,12 +104,20 @@ const ArtifactsDetails = () => {
                 <SlLike />
               </span>{" "}
             </button>
-            <button
-              onClick={() => likeHandler(id)}
-              className="btn w-40 bg-green-500"
-            >
-              Like
-            </button>
+            <div>
+              <button
+                onClick={() => likeHandler(setLike("like"))}
+                className="btn w-20 bg-green-500"
+              >
+                Like
+              </button>
+              <button
+                onClick={() => setLike("dislike")}
+                className="btn w-20 bg-red-500"
+              >
+                Dislike
+              </button>
+            </div>
           </div>
         </div>
       </section>

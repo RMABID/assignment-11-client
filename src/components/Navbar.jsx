@@ -9,12 +9,12 @@ const Navbar = () => {
 
   return (
     <div className="flex items-center justify-between py-5 font-medium">
-      <Link to={"/home"}>
+      <Link to={"/"}>
         {/* <img className="w-36" src={assets.logo} alt="" /> */}
         <h1 className="text-xl">Historical Artifacts</h1>
       </Link>
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700 ">
-        <NavLink to="/home" className="flex flex-col items-center gap-1">
+        <NavLink to="/" className="flex flex-col items-center gap-1">
           <p>Home</p>
           <hr className="w-2/4 hidden border-none h-[1.5px] bg-gray-700  " />
         </NavLink>
@@ -33,7 +33,10 @@ const Navbar = () => {
           <hr className="w-2/4 hidden border-none h-[1.5px] bg-gray-700  " />
         </NavLink>
         {user?.email && (
-          <NavLink className="dropdown flex flex-col items-center gap-1 ">
+          <NavLink
+            to="/my-artifacts"
+            className="dropdown flex flex-col items-center gap-1 "
+          >
             <p tabIndex={0} role="button">
               My Profile
             </p>
