@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 const Home = () => {
   return (
     <div>
-      <header className="w-11/12 mx-auto">
+      <header className="bg-[#6d4817]">
         <Navbar></Navbar>
       </header>
       <section>

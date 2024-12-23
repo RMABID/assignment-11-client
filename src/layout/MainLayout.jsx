@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 const MainLayout = () => {
   return (
     <div>
-      <section className="w-11/12 mx-auto">
+      <section className="bg-[#6d4715]">
         <Navbar></Navbar>
       </section>
 
