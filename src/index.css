@@ -7,7 +7,9 @@
 a.active hr {
   display: block;
 }
-
+/* a.active {
+  background-color: #574328;
+} */
 
 /* swiper */
 .swiper {

@@ -17,9 +17,9 @@ const HighestLike = () => {
   return (
     <div className="my-14">
       <div>
-        <h1 className="text-4xl font-bold text-center">
+        <h1 className="text-4xl  mx-auto font-bold text-center">
           Featured
-          <span>
+          <span className="text-primary">
             {" "}
             <TypingEffect
               speed={50}
@@ -27,11 +27,11 @@ const HighestLike = () => {
               eraseSpeed={500}
               typingDelay={500}
               cursor=".|"
-              text={["Artifacts"]}
+              text={["Artifacts", "Tracker"]}
             ></TypingEffect>{" "}
           </span>
         </h1>
-        <p className="text-center my-6 w-4/5 mx-auto">
+        <p className="text-center my-6 md:w-3/5 mx-auto">
           Discover our Featured Artifacts: A curated collection of historical
           treasures, celebrating ancient civilizations, remarkable
           craftsmanship, and compelling stories that offer a glimpse into the

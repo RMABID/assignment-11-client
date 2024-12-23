@@ -117,7 +117,10 @@ const Navbar = () => {
           </div>
         ) : (
           <div>
-            <Link to={"/login"} className="btn">
+            <Link
+              to={"/login"}
+              className="border-2 px-8 rounded-lg py-3 cursor-pointer border-red-200 hover:bg-[#834d07a0] transition-all duration-500 hover:translate-y-[-6px]"
+            >
               Login
             </Link>
           </div>
