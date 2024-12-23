@@ -6,16 +6,19 @@ import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import useAxios from "../hooks/useAxios";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const MyArtifacts = () => {
+  const axiosSecure = useAxios();
   const { user } = useAuth();
   const [artifacts, setArtifacts] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchArtifact = async () => {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_API_URL}/historical?email=${user?.email}`
+      const { data } = await axiosSecure.get(
+        `/historical?email=${user?.email}`
       );
       setArtifacts(data);
     };
@@ -52,7 +55,10 @@ const MyArtifacts = () => {
   return (
     <div>
       {artifacts.length === 0 ? (
-        <h1>hi</h1>
+        <div className="h-screen flex justify-center items-center">
+          <h1>i a, coming</h1>
+          <LoadingSpinner></LoadingSpinner>
+        </div>
       ) : (
         <div className="overflow-x-auto">
           <table className="table">

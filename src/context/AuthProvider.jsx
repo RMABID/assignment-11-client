@@ -47,26 +47,20 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         setUser(currentUser);
         setLoading(false);
-        const { data } = await axios.post(
+        await axios.post(
           `${import.meta.env.VITE_API_URL}/jwt`,
           { email: currentUser?.email },
           {
             withCredentials: true,
           }
         );
-
-        console.log(data);
       } else {
         setUser(currentUser);
-        setLoading(false);
-        const { data } = await axios.get(
-          `${import.meta.env.VITE_API_URL}/logout`,
-          {
-            withCredentials: true,
-          }
-        );
+        await axios.get(`${import.meta.env.VITE_API_URL}/logout`, {
+          withCredentials: true,
+        });
 
-        console.log(data);
+        setLoading(false);
       }
     });
 
