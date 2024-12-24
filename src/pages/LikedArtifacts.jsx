@@ -24,7 +24,7 @@ function LikedArtifacts() {
       <div className="grid lg:grid-cols-3 gap-8 my-16 md:grid-cols-2 sm:grid-cols-3">
         {artifacts.map((item, index) => (
           <Fade key={index} triggerOnce={true} direction="up" duration={5000}>
-            <div className="hover:scale-110 bg-primary transition ease-in-out flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
+            <div className="hover:scale-110 hover:bg-primary transition ease-in-out flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
               <div>
                 <img
                   src={item?.artifact_image}
@@ -56,14 +56,14 @@ function LikedArtifacts() {
                     <span>{item?.like_count}</span>
                   </button>
                 </div>
-                <div>
-                  <Link
-                    to={`/artifacts-details/${item?._id}`}
-                    className="btn bg-secondary_primary  border-none hover:bg-transparent hover:border-2 hover:text-secondary_primary font-agu font-light text-primary"
-                  >
-                    View Details
-                  </Link>
-                </div>
+              </div>
+              <div className="">
+                <Link
+                  to={"/all-artifacts"}
+                  className="btn bg-secondary_primary w-full  border-none hover:bg-transparent hover:border-2 hover:text-secondary_primary font-agu font-light text-primary"
+                >
+                  See All Artifact
+                </Link>
               </div>
             </div>
           </Fade>

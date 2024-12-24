@@ -41,6 +41,7 @@ const ArtifactsDetails = () => {
       like_id: id,
       artifact_image,
       artifact_name,
+      historical_context,
       like_count,
     };
 
@@ -56,7 +57,6 @@ const ArtifactsDetails = () => {
       toast.error(error?.response?.data);
     }
   };
-
 
   return (
     <div>

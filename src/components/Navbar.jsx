@@ -6,10 +6,19 @@ import TypingEffect from "react-typing-effect";
 import Lottie from "lottie-react";
 import logo_lottie from "../assets/lottie-icon/logo-lottie.json";
 import logout from "../assets/lottie-icon/logout.json";
+import { motion, easeOut } from "motion/react";
 
 const Navbar = () => {
   const { user, userLogout } = useAuth();
   const [visible, setVisible] = useState(false);
+
+  const switchTheme = (e) => {
+    if (e.target.checked) {
+      document.querySelector("body").setAttribute("data-theme", "dark");
+    } else {
+      document.querySelector("body").setAttribute("data-theme", "light");
+    }
+  };
 
   return (
     <div className="flex w-11/12 text-primary mx-auto items-center justify-between py-5 font-medium">
@@ -96,9 +105,22 @@ const Navbar = () => {
             />
             <div className="group-hover:block hidden absolute dropdown-menu pt-4 right-0">
               <div className="flex flex-col gap-2 text-center rounded w-48 space-y-2 py-6 px-8 font-agu bg-[#64441c] text-gray-50">
-                <p className="cursor-pointer hover:text-[#e09b3f]">
+                <motion.p
+                  animate={{
+                    
+                    x: [10],
+                    color: ["#ecff33", "#33ffe3", "#ff6133"],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: 2,
+                    easings: 3,
+                  }}
+                  className="cursor-pointer hover:text-[#e09b3f]"
+                >
                   {user?.displayName}
-                </p>
+                </motion.p>
                 <p className="cursor-pointer hover:text-[#e09b3f]">
                   My Profile
                 </p>
@@ -125,7 +147,12 @@ const Navbar = () => {
             </Link>
           </div>
         )}
-
+        <div>
+          <label className="switch">
+            <input onChange={switchTheme} type="checkbox" />
+            <span className="slider round"></span>
+          </label>
+        </div>
         <p
           onClick={() => setVisible(true)}
           className="w-8 text-3xl cursor-pointer sm:hidden"

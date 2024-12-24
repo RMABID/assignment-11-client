@@ -3,6 +3,9 @@ import { axiosSecure } from "../hooks/useAxios";
 import { Fade } from "react-awesome-reveal";
 import TypingEffect from "react-typing-effect";
 import { Link } from "react-router-dom";
+import { MdOutlineCallMade } from "react-icons/md";
+import { FaLocationDot } from "react-icons/fa6";
+import { BiSolidBookContent } from "react-icons/bi";
 
 const HighestLike = () => {
   const [highestLike, setHighestLike] = useState([]);
@@ -18,28 +21,32 @@ const HighestLike = () => {
   return (
     <div className="my-14">
       <div>
-        <h1 className="text-4xl  mx-auto font-bold text-center">
-          Featured
-          <span className="text-primary">
-            {" "}
-            <TypingEffect
-              speed={50}
-              eraseDelay={1000}
-              eraseSpeed={500}
-              typingDelay={500}
-              cursor=".|"
-              text={["Artifacts", "Tracker"]}
-            ></TypingEffect>{" "}
-          </span>
-        </h1>
-        <p className="text-center my-6 md:w-3/5 mx-auto">
-          Discover our Featured Artifacts: A curated collection of historical
-          treasures, celebrating ancient civilizations, remarkable
-          craftsmanship, and compelling stories that offer a glimpse into the
-          past and the evolution of human culture.
-        </p>
+        <Fade direction="up" triggerOnce={true} duration={520}>
+          <h1 className="text-4xl font-Garamond  mx-auto font-bold text-center">
+            Featured
+            <span className="text-primary">
+              {" "}
+              <TypingEffect
+                speed={50}
+                eraseDelay={1000}
+                eraseSpeed={500}
+                typingDelay={500}
+                cursor=".|"
+                text={["Artifacts", "Tracker"]}
+              ></TypingEffect>{" "}
+            </span>
+          </h1>
+        </Fade>
+        <Fade direction="up" triggerOnce={true} duration={500}>
+          <p className="text-center font-Garamond my-6 md:w-3/5 mx-auto">
+            Discover our Featured Artifacts: A curated collection of historical
+            treasures, celebrating ancient civilizations, remarkable
+            craftsmanship, and compelling stories that offer a glimpse into the
+            past and the evolution of human culture.
+          </p>
+        </Fade>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6 gap-y-6">
+      <div className="grid grid-cols-2 font-Garamond sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6 gap-y-6">
         {highestLike.map((item, index) => (
           <Fade key={index} triggerOnce={true} direction="up" duration={5000}>
             <div className="hover:scale-110  transition ease-in-out flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
@@ -49,10 +56,21 @@ const HighestLike = () => {
                   alt=""
                   className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500"
                 />
-                <h2 className="mb-4 text-xl font-semibold">
+                <h2 className="mb-4 text-xl ml-3 font-semibold">
                   {item?.artifact_name}
                 </h2>
-                <p className="text-sm dark:text-gray-600">
+                <p className="text-sm flex -ml-3 items-center gap-2 dark:text-gray-600">
+                  {" "}
+                  <span className="text-xl">
+                    <FaLocationDot />
+                  </span>
+                  {item?.present_location}
+                </p>
+                <p className="text-sm mt-4 -ml-3 flex items-center gap-2  dark:text-gray-600">
+                  {" "}
+                  <span className="text-xl font-light">
+                    <BiSolidBookContent />
+                  </span>
                   {item?.historical_context}...
                 </p>
               </div>
@@ -85,7 +103,22 @@ const HighestLike = () => {
         ))}
       </div>
       <div className="flex justify-center my-8 items-center">
-        <button className="btn">See All</button>
+        <Fade
+          direction="top-right"
+          triggerOnce={true}
+          delay={20}
+          duration={520}
+        >
+          <Link
+            to={"/all-artifacts"}
+            className="btn bg-primary rounded-full px-12 text-lg font-Garamond text-secondary_primary"
+          >
+            See All Artifact{" "}
+            <span className="text-xl text-white font-bold">
+              <MdOutlineCallMade />
+            </span>
+          </Link>
+        </Fade>
       </div>
     </div>
   );

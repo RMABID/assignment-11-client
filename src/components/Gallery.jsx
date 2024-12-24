@@ -1,3 +1,4 @@
+import { Fade } from "react-awesome-reveal";
 import img1 from "../assets/img/img1.jpeg";
 import img2 from "../assets/img/img2.jpeg";
 import img3 from "../assets/img/img3.jpeg";
@@ -11,9 +12,18 @@ const Gallery = () => {
   return (
     <div>
       <div>
-        <h1 className="text-4xl font-bold text-center">
-          Historical Artifacts Gallery
-        </h1>
+        <Fade direction="up" triggerOnce={true}>
+          <h1 className="text-4xl font-Garamond font-bold text-center">
+            Historical Artifacts Gallery
+          </h1>
+        </Fade>
+        <Fade direction="up" triggerOnce={true} duration={500}>
+          <p className="text-center font-Garamond my-6 md:w-3/5 mx-auto">
+            Discover our Featured Artifacts: A curated collection of historical
+            treasures, celebrating ancient civilizations, remarkable
+            craftsmanship
+          </p>
+        </Fade>
       </div>
       <section className="py-6 dark:bg-gray-100 dark:text-gray-900">
         <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
