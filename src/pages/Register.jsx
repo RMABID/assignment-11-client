@@ -3,6 +3,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { createUser, updatedUser, logInGoogle } = useAuth();
@@ -10,6 +11,7 @@ const Register = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state || "/";
+
   const registerHandler = async (event) => {
     event.preventDefault();
     const form = event.target;
@@ -18,24 +20,37 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).*$/;
+    if (password.length < 6) {
+      return toast.error("Password should be 6 characters or longer");
+    }
+
+    if (!passwordRegex.test(password)) {
+      return toast.error("Provide a Strong Password");
+    }
+
     await createUser(email, password)
       .then(() => {
         updatedUser({ displayName: name, photoURL: photo })
           .then(() => {
+            toast.success("SuccessFully Login");
             navigate(from, { replace: true });
           })
           .catch(() => {});
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
   };
 
   const googleLogin = async () => {
     try {
       await logInGoogle();
+      toast.success("SuccessFully Login");
       navigate(from, { replace: true });
-    } catch (error) {}
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   return (

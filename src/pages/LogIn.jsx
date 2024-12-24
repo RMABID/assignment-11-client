@@ -3,6 +3,7 @@ import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const LogIn = () => {
   const { logInUser, logInGoogle } = useAuth();
@@ -11,18 +12,21 @@ const LogIn = () => {
   const from = location?.state || "/";
   const navigate = useNavigate();
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
 
-    logInUser(email, password)
+    if (password.length < 6) {
+      return toast.error("Password should be 6 characters or longer");
+    }
+    await logInUser(email, password)
       .then(() => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error.message);
       });
   };
 
@@ -31,7 +35,7 @@ const LogIn = () => {
       await logInGoogle();
       navigate(from, { replace: true });
     } catch (error) {
-      console.log(error);
+      toast.error(error.message);
     }
   };
 
