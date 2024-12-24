@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { axiosSecure } from "../hooks/useAxios";
 import { Fade } from "react-awesome-reveal";
 import TypingEffect from "react-typing-effect";
+import { Link } from "react-router-dom";
 
 const HighestLike = () => {
   const [highestLike, setHighestLike] = useState([]);
@@ -74,12 +75,17 @@ const HighestLike = () => {
                   </button>
                 </div>
                 <div>
-                  <button className="btn">View Details</button>
+                  <Link to={`/artifacts-details/${item?._id}`} className="btn">
+                    View Details
+                  </Link>
                 </div>
               </div>
             </div>
           </Fade>
         ))}
+      </div>
+      <div className="flex justify-center my-8 items-center">
+        <button className="btn">See All</button>
       </div>
     </div>
   );

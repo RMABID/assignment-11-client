@@ -22,12 +22,11 @@ const AllArtifacts = () => {
       </section>
       <div>
         {artifacts.length === 0 ? (
-          <div className="h-screen flex justify-center items-center">
-            <h1>i a, coming</h1>
+          <div className="flex justify-center items-center">
             <LoadingSpinner></LoadingSpinner>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-8 gap-4 gap-y-6">
             {artifacts.map((item, index) => (
               <ArtifactCard
                 key={index}

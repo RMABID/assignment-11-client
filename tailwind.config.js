@@ -5,13 +5,16 @@ export default {
     extend: {
       colors: {
         primary: "#D2B48C",
+        secondary_primary: "#6D4715",
       },
 
       fontFamily: {
         agu: ["Agu Display", "serif"],
+        Garamond: ["EB Garamond", " serif"],
       },
       backgroundColor: {
         primary: "#D2B48C",
+        secondary_primary: "#6D4715",
       },
     },
   },

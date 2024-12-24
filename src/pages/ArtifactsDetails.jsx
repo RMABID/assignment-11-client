@@ -38,8 +38,10 @@ const ArtifactsDetails = () => {
     const userLike = {
       name: user?.displayName,
       email: user?.email,
-      like_status: like,
       like_id: id,
+      artifact_image,
+      artifact_name,
+      like_count,
     };
 
     try {
@@ -55,7 +57,6 @@ const ArtifactsDetails = () => {
     }
   };
 
-  console.log(like);
 
   return (
     <div>

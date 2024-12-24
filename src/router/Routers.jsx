@@ -35,19 +35,35 @@ const Routers = createBrowserRouter([
       },
       {
         path: "/my-artifacts",
-        element: <MyArtifacts></MyArtifacts>,
+        element: (
+          <PrivateRoutes>
+            <MyArtifacts></MyArtifacts>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/like-artifacts",
-        element: <LikedArtifacts></LikedArtifacts>,
+        element: (
+          <PrivateRoutes>
+            <LikedArtifacts></LikedArtifacts>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/artifacts-details/:id",
-        element: <ArtifactsDetails></ArtifactsDetails>,
+        element: (
+          <PrivateRoutes>
+            <ArtifactsDetails></ArtifactsDetails>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/artifacts-updated/:id",
-        element: <UpdatedArtifact></UpdatedArtifact>,
+        element: (
+          <PrivateRoutes>
+            <UpdatedArtifact></UpdatedArtifact>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/login",

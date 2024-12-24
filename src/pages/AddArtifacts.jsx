@@ -54,10 +54,10 @@ const AddArtifacts = () => {
     <section className=" my-14 mx-auto">
       <div className="bg-[#F4F3F0] my-10 py-14">
         <div>
-          <h1 className="text-4xl text-center font-bold text-[#374151]">
+          <h1 className="text-5xl font-agu text-center font-bold text-[#374151]">
             Add New Artifacts
           </h1>
-          <p className="md:w-8/12 px-8 my-8 font-raleway-font  mx-auto text-center">
+          <p className="md:w-8/12 font-Garamond font-bold px-8 my-8 font-raleway-font  mx-auto text-center">
             The Historical Artifacts Tracker is a system designed to catalog,
             monitor, and manage historical artifacts, ensuring accurate records,
             preservation, and accessibility for research and education.
@@ -65,11 +65,11 @@ const AddArtifacts = () => {
         </div>
         <form
           onSubmit={AddArtifactsHandler}
-          className="grid grid-cols-1 md:grid-cols-2 font-raleway-font px-4 md:px-36 mt-8  gap-6"
+          className="grid grid-cols-1 font-Garamond md:grid-cols-2 font-raleway-font px-4 md:px-36 mt-8  gap-6"
         >
           <div>
-            <label className="block text-sm font-medium mb-2">
-              Artifact Name
+            <label className="block text-lg font-medium mb-2">
+              Artifact Name :
             </label>
             <input
               type="text"
@@ -79,8 +79,8 @@ const AddArtifacts = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">
-              Artifact Type
+            <label className="block text-lg font-medium mb-2">
+              Artifact Type :
             </label>
             <div className="relative">
               <select
@@ -101,7 +101,9 @@ const AddArtifacts = () => {
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">Created At</label>
+            <label className="block text-lg font-medium mb-2">
+              Created At :
+            </label>
             <input
               type="text"
               name="created_at"
@@ -110,8 +112,8 @@ const AddArtifacts = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">
-              Discovered At
+            <label className="block text-lg font-medium mb-2">
+              Discovered At :
             </label>
             <input
               type="text"
@@ -121,8 +123,8 @@ const AddArtifacts = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">
-              Discovered By
+            <label className="block text-lg font-medium mb-2">
+              Discovered By :
             </label>
             <input
               type="text"
@@ -132,8 +134,8 @@ const AddArtifacts = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">
-              Present Location
+            <label className="block text-lg font-medium mb-2">
+              Present Location :
             </label>
             <input
               type="text"
@@ -143,8 +145,8 @@ const AddArtifacts = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">
-              Artifact adder name
+            <label className="block text-lg font-medium mb-2">
+              Artifact adder name :
             </label>
             <input
               type="text"
@@ -157,8 +159,8 @@ const AddArtifacts = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-2">
-              Artifact adder Email
+            <label className="block text-lg font-medium mb-2">
+              Artifact adder Email :
             </label>
             <input
               type="email"
@@ -172,8 +174,8 @@ const AddArtifacts = () => {
           </div>
 
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium mb-2">
-              Artifact Image
+            <label className="block text-lg font-medium mb-2">
+              Artifact Image :
             </label>
             <input
               type="url"
@@ -184,10 +186,12 @@ const AddArtifacts = () => {
           </div>
           {/* Historical Context */}
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700">
-              Historical Context
+            <label className="block text-lg font-medium text-gray-700">
+              Historical Context :
             </label>
             <textarea
+              rows={4}
+              placeholder="Enter Historical Context"
               name="historical_context"
               className="w-full  mt-1 p-2 border rounded-md focus:ring focus:ring-blue-300"
             />
@@ -196,7 +200,7 @@ const AddArtifacts = () => {
           <div className="md:col-span-2 text-xl font-rancho-font 2 text-center">
             <button
               type="submit"
-              className="btn bg-[#D2B48C] hover:bg-[#F4F3F0] text-[#331A15] w-full "
+              className="btn bg-[#dfc39f] font-agu font-light text-xl hover:bg-secondary_primary hover:text-primary text-[#331A15] w-full "
             >
               Add Artifact
             </button>
