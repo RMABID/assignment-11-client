@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Gallery from "../components/Gallery";
 import HighestLike from "../components/HighestLike";
 import Navbar from "../components/Navbar";
+import Blog from "../components/Blog";
 
 const Home = () => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const Home = () => {
           <HighestLike></HighestLike>
           <Gallery></Gallery>
         </section>
+        <Blog></Blog>
         <ContactUs></ContactUs>
       </section>
       <footer className="">
