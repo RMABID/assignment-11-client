@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 const ErrorPage = () => {
+  useEffect(() => {
+    document.title = "Error - Historical Artifacts Tracker";
+  }, []);
   return (
     <div>
       <section className="flex items-center h-full p-16 dark:bg-gray-50 dark:text-gray-800">

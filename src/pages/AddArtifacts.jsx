@@ -3,6 +3,7 @@ import useAuth from "../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const AddArtifacts = () => {
   const { user } = useAuth();
@@ -49,6 +50,10 @@ const AddArtifacts = () => {
       toast.error(error.message);
     }
   };
+
+  useEffect(() => {
+    document.title = "Add Artifacts - Historical Artifacts Tracker";
+  }, []);
 
   return (
     <section className=" my-14 mx-auto">

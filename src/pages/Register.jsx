@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../hooks/useAuth";
@@ -52,6 +52,10 @@ const Register = () => {
       toast.error(error.message);
     }
   };
+
+  useEffect(() => {
+    document.title = "Register - Historical Artifacts Tracker";
+  }, []);
 
   return (
     <div className="my-16">

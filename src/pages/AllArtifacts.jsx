@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import ArtifactCard from "../components/ArtifactCard";
 import SearchBar from "../components/SearchBar";
 import { axiosSecure } from "../hooks/useAxios";
-import LoadingSpinner from "../components/LoadingSpinner";
 import SkeletonLoader from "../components/SkeletonLoader";
 
 const AllArtifacts = () => {
@@ -13,6 +12,7 @@ const AllArtifacts = () => {
       setArtifacts(data);
     };
     fetchAllArtifacts();
+    document.title = "All Artifacts - Historical Artifacts Tracker";
   }, []);
 
   return (

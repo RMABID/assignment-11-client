@@ -17,6 +17,7 @@ function LikedArtifacts() {
       setArtifacts(data);
     };
     fetchArtifact();
+    document.title = "Like - Historical Artifacts Tracker";
   }, [user?.email]);
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
@@ -40,6 +40,10 @@ const LogIn = () => {
       toast.error(error.message);
     }
   };
+
+  useEffect(() => {
+    document.title = "Login - Historical Artifacts Tracker";
+  }, []);
 
   return (
     <div className="my-16  ">

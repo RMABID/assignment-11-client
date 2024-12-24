@@ -13,6 +13,7 @@ const ArtifactsDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    document.title = "Details - Historical Artifacts Tracker";
     fetchArtifacts();
   }, [id]);
   const fetchArtifacts = async () => {

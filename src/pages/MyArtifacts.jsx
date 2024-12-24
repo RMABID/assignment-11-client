@@ -24,6 +24,7 @@ const MyArtifacts = () => {
       setArtifacts(data);
     };
     fetchArtifact();
+    document.title = "My artifacts - Historical Artifacts Tracker";
   }, [user?.email]);
 
   const deleteHandler = (id) => {

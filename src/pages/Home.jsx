@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Banner from "../components/Banner";
 import ContactUs from "../components/ContactUs";
 import Footer from "../components/Footer";
@@ -6,6 +7,9 @@ import HighestLike from "../components/HighestLike";
 import Navbar from "../components/Navbar";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Home - Historical Artifacts Tracker";
+  }, []);
   return (
     <div>
       <header className="">

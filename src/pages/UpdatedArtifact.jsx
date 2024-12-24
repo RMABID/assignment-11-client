@@ -18,6 +18,7 @@ const UpdatedArtifact = () => {
       setArtifacts(data);
     };
     fetchArtifacts();
+    document.title = "Updated - Historical Artifacts Tracker";
   }, []);
 
   const updateArtifactsHandler = async (event) => {
