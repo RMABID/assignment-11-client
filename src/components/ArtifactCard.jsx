@@ -16,7 +16,7 @@ const ArtifactCard = ({ id, image, name, created, location, discovered }) => {
             <h2 className="mb-2 px-3 text-xl font-semibold">{name}</h2>
           </div>
 
-          <div className="p-2 font-agu">
+          <div className="p-2 space-y-3 font-Garamond">
             <p className="text-sm font-light">
               <span className="text-lg">Created At : </span>
               {created}
@@ -28,10 +28,10 @@ const ArtifactCard = ({ id, image, name, created, location, discovered }) => {
             <p className="text-sm flex items-center font-light">
               <span className="text-lg mr-2">Location : </span> {location}</p>
           </div>
-          <div>
+          <div className="mt-2">
             <Link
               to={`/artifacts-details/${id}`}
-              className="w-full rounded-b-lg hover:bg-primary hover:text-secondary_primary hover:font-agu btn rounded-t-none bg-secondary_primary text-primary py-3"
+              className="w-full rounded-b-lg hover:bg-primary hover:text-secondary_primary hover:font-agu btn rounded-t-none bg-secondary_primary font-light text-lg text-primary"
             >
               <FcViewDetails />
               View Detail

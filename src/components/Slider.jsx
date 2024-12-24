@@ -41,7 +41,7 @@ const Slider = () => {
             <img className="opacity-55" src={slider_img1} alt="" />
             <div className="absolute hidden md:block opacity-100  ml-32 z-10 md:top-[40%] w-3/6 text-left  bottom-0 ">
               <Fade direction="down">
-                <h1 className="lg:text-6xl md:text-5xl text-left font-bold text-black">
+                <h1 className="lg:text-6xl font-Garamond md:text-5xl text-left font-bold text-black">
                   Historical Artifacts
                   <br />{" "}
                   <span className="text-[#834d07a0] font-agu font-light">
@@ -60,7 +60,7 @@ const Slider = () => {
                   </span>
                 </h1>
 
-                <p className="text-lg my-4 text-blue-950 font-medium">
+                <p className="text-lg my-4 font-Garamond text-blue-950 font-medium">
                   A Historical Artifacts Tracker is a digital system designed to
                   manage and monitor artifacts, providing detailed records and
                   insights into their history, location, condition, and
@@ -85,7 +85,7 @@ const Slider = () => {
             <img className="opacity-55" src={slider_img2} alt="" />
             <div className="absolute hidden md:block opacity-100  ml-32 z-10 md:top-[40%] w-3/6 text-left  bottom-0 ">
               <Fade direction="down">
-                <h1 className="lg:text-6xl md:text-5xl text-left font-bold text-black">
+                <h1 className="lg:text-6xl font-Garamond md:text-5xl text-left font-bold text-black">
                   Historical Artifacts
                   <br />{" "}
                   <span className="text-[#834d07a0] font-agu font-light">

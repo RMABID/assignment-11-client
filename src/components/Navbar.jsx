@@ -40,7 +40,7 @@ const Navbar = () => {
           </span>
         </h1>
       </Link>
-      <ul className="hidden bg-transparent sm:flex gap-5 text-lg font-light ">
+      <ul className="hidden bg-transparent font-Garamond sm:flex gap-5 text-lg font-light ">
         <NavLink to="/" className="flex flex-col items-center gap-1">
           <p>Home</p>
           <hr className="w-2/4 hidden border-none h-[1.5px] bg-[#e09b3f] " />
@@ -104,7 +104,7 @@ const Navbar = () => {
               alt=""
             />
             <div className="group-hover:block hidden absolute dropdown-menu pt-4 right-0">
-              <div className="flex flex-col gap-2 text-center rounded w-48 space-y-2 py-6 px-8 font-agu bg-[#64441c] text-gray-50">
+              <div className="flex flex-col gap-2 text-center rounded w-48 space-y-2 py-6 px-8 font-Garamond bg-[#64441c] text-gray-50">
                 <motion.p
                   animate={{
                     
