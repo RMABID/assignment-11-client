@@ -18,7 +18,6 @@ const useAxios = () => {
         return res;
       },
       async (error) => {
-        console.log("cout koiche");
         error.response;
 
         if (error.response.status === 401 || error.response.status === 403) {

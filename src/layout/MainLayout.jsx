@@ -5,14 +5,14 @@ import Footer from "../components/Footer";
 const MainLayout = () => {
   return (
     <div>
-      <section className="bg-[#6d4715]">
+      <section className="">
         <Navbar></Navbar>
       </section>
 
-      <section className="w-10/12  mx-auto">
+      <section className="w-10/12 py-16 min-h-[calc(100vh-400px)] mx-auto">
         <Outlet></Outlet>
       </section>
-      <footer>
+      <footer className="mt-3">
         <Footer></Footer>
       </footer>
     </div>

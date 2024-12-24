@@ -8,7 +8,7 @@ import Navbar from "../components/Navbar";
 const Home = () => {
   return (
     <div>
-      <header className="bg-[#6d4817]">
+      <header className="">
         <Navbar></Navbar>
       </header>
       <section>
@@ -19,7 +19,7 @@ const Home = () => {
         </section>
         <ContactUs></ContactUs>
       </section>
-      <footer>
+      <footer className="mt-3">
         <Footer></Footer>
       </footer>
     </div>

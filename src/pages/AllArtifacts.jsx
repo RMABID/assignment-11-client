@@ -6,7 +6,6 @@ import LoadingSpinner from "../components/LoadingSpinner";
 
 const AllArtifacts = () => {
   const [artifacts, setArtifacts] = useState([]);
-  console.log(artifacts);
   useEffect(() => {
     const fetchAllArtifacts = async () => {
       const { data } = await axiosSecure.get(`/all-historical-data`);
@@ -16,7 +15,7 @@ const AllArtifacts = () => {
   }, []);
 
   return (
-    <div>
+    <div className="my-16">
       <section>
         <SearchBar setArtifacts={setArtifacts}></SearchBar>
       </section>

@@ -63,7 +63,6 @@ const UpdatedArtifact = () => {
     }
   };
 
-  //   console.log(artifacts);
   return (
     <div>
       <div className="p-3">

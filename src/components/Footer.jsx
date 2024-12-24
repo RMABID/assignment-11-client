@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-12">
           <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
             <Link to={"/"}>
-              <h1 className="text-2xl flex items-center  text-primary font-agu leading-relaxed">
+              <h1 className="text-2xl -ml-8 flex items-center  text-primary font-agu leading-relaxed">
                 <span>
                   <Lottie
                     className="w-16 -mr-7 -mt-6"
@@ -29,6 +29,11 @@ const Footer = () => {
                 </span>
               </h1>
             </Link>
+            <p className="text-lg my-4 font-Garamond w-5/6 font-medium">
+              A Historical Artifacts Tracker is a digital system designed to
+              manage and monitor artifacts, providing detailed records and
+              insights into their history, location, condition, and provenance.
+            </p>
           </div>
           <div className="col-span-6 text-center md:text-left md:col-span-3">
             <p className="pb-1 text-lg font-medium">USE LINKS</p>
@@ -43,7 +48,6 @@ const Footer = () => {
                 <li className="transition-all duration-500 hover:translate-x-3 ease-linear">
                   <Link>Add Artifacts</Link>
                 </li>
-            
               </ul>
             </ul>
           </div>
