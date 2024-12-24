@@ -60,16 +60,16 @@ const MyArtifacts = () => {
           <LoadingSpinner></LoadingSpinner>
         </div>
       ) : (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto my-14 ">
           <table className="table">
             {/* head */}
             <thead>
-              <tr>
+              <tr className="text-lg text-primary font-agu">
                 <th>Sel</th>
                 <th>Name</th>
                 <th>Artifact Type</th>
                 <th>Created At</th>
-                <th></th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -83,7 +83,7 @@ const MyArtifacts = () => {
                         <div className="mask mask-squircle h-12 w-12">
                           <img
                             src={item?.artifact_image}
-                            alt="Avatar Tailwind CSS Component"
+                            alt={item?.artifact_name}
                           />
                         </div>
                       </div>
@@ -106,13 +106,13 @@ const MyArtifacts = () => {
                   <th className="flex items-center gap-3">
                     <Link
                       to={`/artifacts-updated/${item?._id}`}
-                      className="btn "
+                      className="btn hover:text-green-500 text-lg"
                     >
                       <FaRegEdit />
                     </Link>
                     <button
                       onClick={() => deleteHandler(item?._id)}
-                      className="btn "
+                      className="btn text-red-500 bg-primary hover:bg-red-600 hover:text-white text-lg"
                     >
                       <MdDeleteForever />
                     </button>
