@@ -10,6 +10,7 @@ import MyArtifacts from "../pages/MyArtifacts";
 import PrivateRoutes from "./PrivateRoutes";
 import UpdatedArtifact from "../pages/UpdatedArtifact";
 import LikedArtifacts from "../pages/LikedArtifacts";
+import ErrorPage from "../pages/ErrorPage";
 
 const Routers = createBrowserRouter([
   {
@@ -60,7 +61,7 @@ const Routers = createBrowserRouter([
   },
   {
     path: "*",
-    element: <div>hi</div>,
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
 
