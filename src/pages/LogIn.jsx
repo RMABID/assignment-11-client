@@ -23,6 +23,7 @@ const LogIn = () => {
     }
     await logInUser(email, password)
       .then(() => {
+        toast.success("Successfully Login");
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -33,6 +34,7 @@ const LogIn = () => {
   const googleLogin = async () => {
     try {
       await logInGoogle();
+      toast.success("Successfully Login");
       navigate(from, { replace: true });
     } catch (error) {
       toast.error(error.message);

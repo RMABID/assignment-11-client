@@ -8,7 +8,6 @@ import logo_lottie from "../assets/lottie-icon/logo-lottie.json";
 import logout from "../assets/lottie-icon/logout.json";
 import { motion, easeOut } from "motion/react";
 
-
 const Navbar = () => {
   const { user, userLogout } = useAuth();
   const [visible, setVisible] = useState(false);
@@ -22,10 +21,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-[#6d4817]  z-30 fixed w-full">
+    <div className="bg-[#6d4817] z-30 md:fixed w-full">
       <div className="flex w-11/12   text-primary mx-auto items-center justify-between py-5 font-medium">
         <Link to={"/"}>
-          <h1 className="text-2xl flex items-center  text-primary font-agu leading-relaxed">
+          <h1 className="md:text-2xl text-lg -ml-4 flex items-center  text-primary font-agu leading-relaxed">
             <span>
               <Lottie
                 className="w-16 -mr-7 -mt-6"
@@ -33,7 +32,7 @@ const Navbar = () => {
               />
             </span>
             Historical
-            <span className="ml-2 w-32">
+            <span className="ml-2 w-18 md:w-32">
               <TypingEffect
                 speed={50}
                 eraseDelay={500}
@@ -45,7 +44,7 @@ const Navbar = () => {
             </span>
           </h1>
         </Link>
-        <ul className="hidden bg-transparent font-Garamond sm:flex gap-5 text-lg font-light ">
+        <ul className="hidden  bg-transparent font-Garamond sm:flex gap-5 text-lg font-light ">
           <NavLink to="/" className="flex flex-col items-center gap-1">
             <p>Home</p>
             <hr className="w-2/4 hidden border-none h-[1.5px] bg-[#e09b3f] " />
@@ -100,7 +99,7 @@ const Navbar = () => {
           )}
         </ul>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-2 md:gap-4">
           {user ? (
             <div className="group cursor-pointer z-50 relative">
               <img

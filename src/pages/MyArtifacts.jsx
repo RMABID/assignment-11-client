@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAxios from "../hooks/useAxios";
 import LoadingSpinner from "../components/LoadingSpinner";
+import SkeletonLoader from "../components/SkeletonLoader";
 
 const MyArtifacts = () => {
   const axiosSecure = useAxios();
@@ -56,8 +57,14 @@ const MyArtifacts = () => {
     <div>
       {artifacts.length === 0 ? (
         <div className="h-screen flex justify-center items-center">
-          <h1>i a, coming</h1>
-          <LoadingSpinner></LoadingSpinner>
+          <div>
+            <div className="my-24">
+              <h1 className="text-center text-5xl text-red-400 font-bold font-Garamond">
+                You Have No Add Any Post
+              </h1>
+            </div>
+            <SkeletonLoader></SkeletonLoader>
+          </div>
         </div>
       ) : (
         <div className="overflow-x-auto my-14 ">

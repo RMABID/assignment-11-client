@@ -1,3 +1,4 @@
+import SkeletonLoader from "./SkeletonLoader";
 import Slider from "./Slider";
 
 const Banner = () => {

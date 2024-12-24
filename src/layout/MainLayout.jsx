@@ -12,7 +12,7 @@ const MainLayout = () => {
       <section className="w-10/12 py-16 min-h-[calc(100vh-400px)] mx-auto">
         <Outlet></Outlet>
       </section>
-      <footer className="mt-3">
+      <footer className="">
         <Footer></Footer>
       </footer>
     </div>

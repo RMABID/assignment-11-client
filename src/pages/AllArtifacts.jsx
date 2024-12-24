@@ -3,6 +3,7 @@ import ArtifactCard from "../components/ArtifactCard";
 import SearchBar from "../components/SearchBar";
 import { axiosSecure } from "../hooks/useAxios";
 import LoadingSpinner from "../components/LoadingSpinner";
+import SkeletonLoader from "../components/SkeletonLoader";
 
 const AllArtifacts = () => {
   const [artifacts, setArtifacts] = useState([]);
@@ -22,7 +23,14 @@ const AllArtifacts = () => {
       <div>
         {artifacts.length === 0 ? (
           <div className="flex justify-center items-center">
-            <LoadingSpinner></LoadingSpinner>
+            <div>
+              <div className="my-24">
+                <h1 className="text-center text-5xl text-red-400 font-bold font-Garamond">
+                  No Found Any Post
+                </h1>
+              </div>
+              <SkeletonLoader></SkeletonLoader>
+            </div>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-8 gap-4 gap-y-6">
