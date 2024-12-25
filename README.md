@@ -27,8 +27,9 @@ A web application for tracking and managing historical artifacts using modern we
 - MongoDB running locally or a MongoDB Atlas connection
 
 # Submit Links :
-- Live Site Link : https://historical-artifacts.web.app/all-artifacts
 
-- Github Repository ( server ) : 
+- Live Site Link : https://historical-artifacts.firebaseapp.com
 
-- Github Repository ( client  ) : 
+- Github Repository ( server ) : https://github.com/programming-hero-web-course2/b10a11-server-side-RMABID
+
+- Github Repository ( client ) : https://github.com/programming-hero-web-course2/b10a11-client-side-RMABID
