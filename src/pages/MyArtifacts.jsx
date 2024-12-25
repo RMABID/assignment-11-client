@@ -69,9 +69,15 @@ const MyArtifacts = () => {
         </div>
       ) : (
         <div className="overflow-x-auto my-14 ">
-          <table className="table">
+          <h1 className="text-xl my-8 font-Garamond font-bold">
+            My Artifacts{" "}
+            <span className="bg-green-500  text-sm px-3 p-1 font-light rounded-full">
+              {artifacts?.length} Post
+            </span>
+          </h1>
+          <table className="table  border-2">
             {/* head */}
-            <thead>
+            <thead className="bg-gray-100 ">
               <tr className="text-lg text-primary font-agu">
                 <th>Sel</th>
                 <th>Name</th>
