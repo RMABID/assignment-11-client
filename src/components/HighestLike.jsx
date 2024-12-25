@@ -76,7 +76,7 @@ const HighestLike = () => {
                     <span className="text-xl font-light">
                       <BiSolidBookContent />
                     </span>
-                    {item?.historical_context}...
+                    {item?.historical_context.slice(0, 150)}...
                   </p>
                 </div>
                 <div className="flex flex-wrap justify-between">
