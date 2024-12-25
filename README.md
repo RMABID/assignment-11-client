@@ -1,8 +1,34 @@
-# React + Vite
+# Historical Artifacts Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application for tracking and managing historical artifacts using modern web technologies: **Node.js**, **React.js**, and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add and manage historical artifacts.
+- View detailed information about each artifact.
+- Track likes and interactions for each artifact.
+- Responsive design powered by Tailwind CSS.
+- RESTful API for managing artifact data.
+
+## Technologies Used
+
+- **Frontend:** React.js, Tailwind CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Styling:** Tailwind CSS
+
+---
+
+## Installation
+
+### Prerequisites
+
+- Node.js installed
+- MongoDB running locally or a MongoDB Atlas connection
+
+# Submit Links :
+- Live Site Link : https://historical-artifacts.web.app/all-artifacts
+
+- Github Repository ( server ) : 
+
+- Github Repository ( client  ) : 
