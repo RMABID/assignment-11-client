@@ -35,6 +35,7 @@ const AddArtifacts = () => {
       historical_context,
       artifact_image,
       like_count: 0,
+      status: "Like",
     };
 
     try {

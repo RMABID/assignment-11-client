@@ -8,7 +8,6 @@ import { SlLike } from "react-icons/sl";
 const ArtifactsDetails = () => {
   const { user } = useAuth();
   const [artifacts, setArtifacts] = useState({});
-  const [like, setLike] = useState();
 
   const { id } = useParams();
 
@@ -16,12 +15,23 @@ const ArtifactsDetails = () => {
     document.title = "Details - Historical Artifacts Tracker";
     fetchArtifacts();
   }, [id]);
+
+  // History Details Data fetch
   const fetchArtifacts = async () => {
     const { data } = await axios.get(
       `${import.meta.env.VITE_API_URL}/historical/${id}`
     );
     setArtifacts(data);
   };
+  // History Like Data fetch
+
+  // const fetchLikeData = async () => {
+  //   const { data } = await axios.get(
+  //     `${import.meta.env.VITE_API_URL}/historical-like`
+  //   );
+  //   setLike(data);
+  // };
+
   const {
     _id,
     artifact_name,
@@ -33,6 +43,7 @@ const ArtifactsDetails = () => {
     historical_context,
     artifact_image,
     like_count,
+    status,
   } = artifacts;
 
   const likeHandler = async () => {
@@ -58,6 +69,40 @@ const ArtifactsDetails = () => {
       toast.error(error?.response?.data);
     }
   };
+
+  // I am Fail count like 😢😢///
+
+  // const handleChangLike = async (id, prv, status) => {
+  //   const userLike = {
+  //     name: user?.displayName,
+  //     email: user?.email,
+  //     like_id: id,
+  //     artifact_image,
+  //     artifact_name,
+  //     historical_context,
+  //     like_count,
+  //   };
+
+  //   console.log(id, prv, status);
+
+  //   try {
+  //     const { data } = axios.patch(
+  //       `${import.meta.env.VITE_API_URL}/like-update/${id}`,
+  //       { status }
+  //     );
+  //     await axios.post(
+  //       `${import.meta.env.VITE_API_URL}/historical-like`,
+  //       userLike
+  //     );
+  //     toast.success("You have like on artifact");
+  //     fetchArtifacts();
+
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //     toast.error(error?.response?.data);
+  //   }
+  // };
 
   return (
     <div>
@@ -107,17 +152,8 @@ const ArtifactsDetails = () => {
               </span>{" "}
             </button>
             <div>
-              <button
-                onClick={() => likeHandler(setLike("like"))}
-                className="btn w-20 bg-green-500"
-              >
+              <button onClick={likeHandler} className="btn w-20 bg-green-500">
                 Like
-              </button>
-              <button
-                onClick={() => setLike("dislike")}
-                className="btn w-20 bg-red-500"
-              >
-                Dislike
               </button>
             </div>
           </div>
