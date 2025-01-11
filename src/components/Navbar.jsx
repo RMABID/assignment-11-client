@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-[#6d4817] z-30 md:fixed w-full">
+    <div className="bg-[#6d4817] z-30 fixed w-full">
       <div className="flex w-11/12   text-primary mx-auto items-center justify-between py-5 font-medium">
         <Link to={"/"}>
           <h1 className="md:text-2xl text-lg -ml-4 flex items-center  text-primary font-agu leading-relaxed">
@@ -56,47 +56,59 @@ const Navbar = () => {
             <p>All Artifacts</p>
             <hr className="w-2/4 hidden border-none h-[1.5px] bg-[#e09b3f]  " />
           </NavLink>
-          <NavLink
-            to="/add-artifacts"
-            className="flex flex-col items-center gap-1"
-          >
-            <p>Add Artifacts</p>
+
+          {user?.email && (
+            <ul className="hidden  bg-transparent font-Garamond sm:flex gap-5 text-lg font-light">
+              <NavLink
+                to="/add-artifacts"
+                className="flex flex-col items-center gap-1"
+              >
+                <p>Add Artifacts</p>
+                <hr className="w-2/4 hidden border-none h-[1.5px] bg-[#e09b3f]  " />
+              </NavLink>
+
+              <NavLink
+                to="/my-artifacts"
+                className="dropdown flex flex-col items-center gap-1 "
+              >
+                <p tabIndex={0} role="button">
+                  My Profile
+                </p>
+
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu ml-12 mt-6 bg-[#a8793b] rounded-md  z-[9] w-40 p-2 shadow"
+                >
+                  <li>
+                    <NavLink
+                      to="/my-artifacts"
+                      className="flex flex-col items-center gap-1"
+                    >
+                      <p>My Artifacts</p>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/like-artifacts"
+                      className="flex flex-col items-center gap-1"
+                    >
+                      Liked Artifacts
+                    </NavLink>
+                  </li>
+                </ul>
+
+                {/* <hr className="w-2/4 hidden border-none h-[1.5px] bg-[#e09b3f]  " /> */}
+              </NavLink>
+            </ul>
+          )}
+          <NavLink to="/about" className="flex flex-col items-center gap-1">
+            <p>About</p>
             <hr className="w-2/4 hidden border-none h-[1.5px] bg-[#e09b3f]  " />
           </NavLink>
-          {user?.email && (
-            <NavLink
-              to="/my-artifacts"
-              className="dropdown flex flex-col items-center gap-1 "
-            >
-              <p tabIndex={0} role="button">
-                My Profile
-              </p>
-
-              <ul
-                tabIndex={0}
-                className="dropdown-content menu ml-12 mt-6 bg-[#a8793b] rounded-md  z-[9] w-40 p-2 shadow"
-              >
-                <li>
-                  <NavLink
-                    to="/my-artifacts"
-                    className="flex flex-col items-center gap-1"
-                  >
-                    <p>My Artifacts</p>
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/like-artifacts"
-                    className="flex flex-col items-center gap-1"
-                  >
-                    Liked Artifacts
-                  </NavLink>
-                </li>
-              </ul>
-
-              {/* <hr className="w-2/4 hidden border-none h-[1.5px] bg-[#e09b3f]  " /> */}
-            </NavLink>
-          )}
+          <NavLink to="/contact" className="flex flex-col items-center gap-1">
+            <p>Contact</p>
+            <hr className="w-2/4 hidden border-none h-[1.5px] bg-[#e09b3f]  " />
+          </NavLink>
         </ul>
 
         <div className="flex items-center gap-2 md:gap-4">
@@ -166,7 +178,7 @@ const Navbar = () => {
         {/* sidebar menu for small screens */}
         <div
           className={`absolute top-0 right-0 z-20 font-agu overflow-hidden bottom-0 bg-[#8a5a1b] transition-all ${
-            visible ? "w-full" : "w-0"
+            visible ? "w-full min-h-screen" : "w-0"
           } `}
         >
           <div className="flex flex-col my-6 space-y-8 text-[#e4a450]">

@@ -16,8 +16,8 @@ const SearchBar = ({ setArtifacts }) => {
   }, [search]);
 
   return (
-    <div className="text-primary mt-6 font-agu text-center">
-      <div className="inline-flex items-center mt-6 justify-center border border-primary px-5 my-5 mx-3 rounded-full w-3/4 sm:h-1/2">
+    <div className="text-primary  font-agu text-center">
+      <div className="inline-flex items-center mt-6 justify-center border border-primary px-5 my-5 mx-3 rounded-full  sm:h-1/2">
         <input
           onChange={(event) => setSearch(event.target.value)}
           className="flex-1 p-2 outline-none bg-inherit text-sm"

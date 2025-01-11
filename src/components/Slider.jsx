@@ -32,10 +32,11 @@ const Slider = () => {
         pagination={{
           clickable: true,
         }}
+        // height={50}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
-        className="mySwiper"
+        className="mySwiper "
       >
         <SwiperSlide>
           <div className="relative">

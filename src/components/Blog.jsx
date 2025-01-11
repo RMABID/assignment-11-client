@@ -33,7 +33,7 @@ const Blog = () => {
             </div>
           </Link>
           <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <a
+            <Link
               rel="noopener noreferrer"
               href="#"
               className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-900 dark:bg-gray-50"
@@ -56,8 +56,8 @@ const Blog = () => {
                   history.
                 </p>
               </div>
-            </a>
-            <a
+            </Link>
+            <Link
               rel="noopener noreferrer"
               href="#"
               className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-900 dark:bg-gray-50"
@@ -81,8 +81,8 @@ const Blog = () => {
                   misplacement, and theft, and how modern tools can help.
                 </p>
               </div>
-            </a>
-            <a
+            </Link>
+            <Link
               rel="noopener noreferrer"
               href="#"
               className="max-w-sm mx-auto group hover:no-underline focus:no-underline bg-gray-900 dark:bg-gray-50"
@@ -106,7 +106,7 @@ const Blog = () => {
                   records for better accessibility, research, and storytelling.
                 </p>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="flex justify-center">
             <Link

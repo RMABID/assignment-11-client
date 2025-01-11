@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   useEffect(() => {
@@ -19,13 +20,13 @@ const ErrorPage = () => {
               But dont worry, you can find plenty of other things on our
               homepage.
             </p>
-            <a
+            <Link
               rel="noopener noreferrer"
               href="/"
               className="px-8 border-2 rounded-xl py-3 font-semibold  dark:bg-violet-600 dark:text-gray-50"
             >
               Back to homepage
-            </a>
+            </Link>
           </div>
         </div>
       </section>

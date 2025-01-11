@@ -15,10 +15,35 @@ const AllArtifacts = () => {
     document.title = "All Artifacts - Historical Artifacts Tracker";
   }, []);
 
+  const handleArtifactType = async (type) => {
+    const { data } = await axiosSecure.get(
+      `/all-historical-data?filter=${type}`
+    );
+    setArtifacts(data);
+  };
+
   return (
     <div className="my-16">
-      <section>
-        <SearchBar setArtifacts={setArtifacts}></SearchBar>
+      <section className="md:flex justify-between  items-center">
+        <div className="md:flex-1"></div>
+        <div className="flex items-center md:justify-end justify-between flex-1">
+          <SearchBar setArtifacts={setArtifacts}></SearchBar>
+          <div className="">
+            <select
+              onChange={(e) => handleArtifactType(e.target.value)}
+              defaultValue={"default"}
+              className="select rounded-full border-primary select-bordered w-full "
+            >
+              <option disabled value={"default"}>
+                Select Artifact Type
+              </option>
+              <option>Tools</option>
+              <option>Weapons</option>
+              <option>Document</option>
+              <option>Writings</option>
+            </select>
+          </div>
+        </div>
       </section>
       <div>
         {artifacts.length === 0 ? (

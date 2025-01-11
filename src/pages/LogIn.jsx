@@ -48,7 +48,7 @@ const LogIn = () => {
   return (
     <div className="my-16  ">
       <div className="">
-        <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
+        <div className="card  bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl">
           <h1 className="text-2xl font-medium text-center text-black border-b-2 border-gray-200 py-6">
             Login your account
           </h1>
@@ -101,7 +101,7 @@ const LogIn = () => {
             </div>
 
             <div className="form-control mt-6">
-              <button className="btn btn-primary bg-black text-white">
+              <button className="btn bg-[#D2B48C] hover:bg-[#F4F3F0] text-black">
                 Login
               </button>
             </div>
