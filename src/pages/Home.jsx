@@ -16,7 +16,7 @@ const Home = () => {
       <header className="">
         <Navbar></Navbar>
       </header>
-      <section className="md:py-20">
+      <section className="py-20">
         <Banner></Banner>
         <section className="w-11/12 mx-auto">
           <HighestLike></HighestLike>

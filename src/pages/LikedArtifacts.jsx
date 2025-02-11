@@ -41,7 +41,7 @@ function LikedArtifacts() {
                 direction="up"
                 duration={5000}
               >
-                <div className="hover:scale-110 hover:bg-primary transition ease-in-out flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
+                <div className="hover:scale-110 hover:bg-primary dark:border-white dark:border-2 transition ease-in-out flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
                   <div>
                     <img
                       src={item?.artifact_image}

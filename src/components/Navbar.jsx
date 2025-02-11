@@ -9,7 +9,7 @@ import logout from "../assets/lottie-icon/logout.json";
 import { motion, easeOut } from "motion/react";
 
 const Navbar = () => {
-  const { user, userLogout } = useAuth();
+  const { user, userLogout, setIsDark, isDark } = useAuth();
   const [visible, setVisible] = useState(false);
 
   const switchTheme = (e) => {
@@ -164,7 +164,7 @@ const Navbar = () => {
           )}
           <div>
             <label className="switch">
-              <input onChange={switchTheme} type="checkbox" />
+              <input onClick={() => setIsDark(!isDark)} type="checkbox" />
               <span className="slider round"></span>
             </label>
           </div>

@@ -4,12 +4,12 @@ import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 const MainLayout = () => {
   return (
-    <div>
+    <div className="dark:bg-black">
       <section className="">
         <Navbar></Navbar>
       </section>
 
-      <section className="w-10/12 py-16 min-h-[calc(100vh-400px)] mx-auto">
+      <section className="w-10/12 py-16 min-h-[calc(100vh-400px)]  mx-auto">
         <Outlet></Outlet>
       </section>
       <footer className="">

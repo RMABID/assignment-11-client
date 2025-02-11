@@ -6,6 +6,9 @@ export default {
       colors: {
         primary: "#D2B48C",
         secondary_primary: "#6D4715",
+        // lightHover: "#fcf4ff",
+        // darkHover: "#2a004a",
+        // darkTheme: "#11001F",
       },
 
       fontFamily: {
@@ -18,5 +21,6 @@ export default {
       },
     },
   },
+  darkMode: "selector",
   plugins: [require("daisyui")],
 };

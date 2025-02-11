@@ -2,8 +2,12 @@ import Lottie from "lottie-react";
 import about from "../assets/lottie-icon/Animation - 1736504041198.json";
 import about_img from "../assets/About-Page-768x403.png";
 import { Fade } from "react-awesome-reveal";
+import { useEffect } from "react";
 
 const About = () => {
+  useEffect(() => {
+    document.title = "About - Historical Artifacts Tracker";
+  }, []);
   return (
     <section className="py-14">
       <Fade direction="up">
