@@ -62,6 +62,8 @@ const ArtifactsDetails = () => {
     }
   };
 
+  console.log(status);
+
   return (
     <div>
       <section className="w-10/12 lg:rounded-xl bg-[#F4F3F0] mx-auto my-14">
@@ -110,8 +112,13 @@ const ArtifactsDetails = () => {
               </span>{" "}
             </button>
             <div>
-              <button onClick={likeHandler} className="btn w-20 bg-green-500">
-                Like
+              <button
+                onClick={likeHandler}
+                className={`btn w-20 bg-green-500 ${
+                  status && status === "Dislike" ? "bg-red-500" : ""
+                }`}
+              >
+                {status}
               </button>
             </div>
           </div>
