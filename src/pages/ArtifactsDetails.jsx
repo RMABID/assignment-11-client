@@ -56,7 +56,7 @@ const ArtifactsDetails = () => {
       );
       fetchArtifacts();
 
-      toast.success("You have like on artifact");
+      toast.success(`You have ${status} on artifact`);
     } catch (error) {
       toast.error(error?.response?.data);
     }
@@ -106,10 +106,10 @@ const ArtifactsDetails = () => {
           </p>
           <div className="flex justify-between">
             <button className="btn bg-purple-400 text-white w-32 text-lg">
-              {like_count}
               <span>
                 <SlLike />
               </span>{" "}
+              {like_count}
             </button>
             <div>
               <button
