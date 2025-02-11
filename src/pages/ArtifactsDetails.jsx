@@ -8,6 +8,7 @@ import { SlLike } from "react-icons/sl";
 const ArtifactsDetails = () => {
   const { user } = useAuth();
   const [artifacts, setArtifacts] = useState({});
+  const [isLike, setIsLike] = useState(false);
 
   const { id } = useParams();
 
@@ -23,14 +24,6 @@ const ArtifactsDetails = () => {
     );
     setArtifacts(data);
   };
-  // History Like Data fetch
-
-  // const fetchLikeData = async () => {
-  //   const { data } = await axios.get(
-  //     `${import.meta.env.VITE_API_URL}/historical-like`
-  //   );
-  //   setLike(data);
-  // };
 
   const {
     _id,
@@ -55,6 +48,7 @@ const ArtifactsDetails = () => {
       artifact_name,
       historical_context,
       like_count,
+      isLike,
     };
 
     try {
@@ -69,40 +63,7 @@ const ArtifactsDetails = () => {
       toast.error(error?.response?.data);
     }
   };
-
-  // I am Fail count like 😢😢///
-
-  // const handleChangLike = async (id, prv, status) => {
-  //   const userLike = {
-  //     name: user?.displayName,
-  //     email: user?.email,
-  //     like_id: id,
-  //     artifact_image,
-  //     artifact_name,
-  //     historical_context,
-  //     like_count,
-  //   };
-
-  //   console.log(id, prv, status);
-
-  //   try {
-  //     const { data } = axios.patch(
-  //       `${import.meta.env.VITE_API_URL}/like-update/${id}`,
-  //       { status }
-  //     );
-  //     await axios.post(
-  //       `${import.meta.env.VITE_API_URL}/historical-like`,
-  //       userLike
-  //     );
-  //     toast.success("You have like on artifact");
-  //     fetchArtifacts();
-
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //     toast.error(error?.response?.data);
-  //   }
-  // };
+  console.log(isLike);
 
   return (
     <div>
@@ -152,7 +113,10 @@ const ArtifactsDetails = () => {
               </span>{" "}
             </button>
             <div>
-              <button onClick={likeHandler} className="btn w-20 bg-green-500">
+              <button
+                onClick={() => likeHandler(setIsLike(!isLike))}
+                className="btn w-20 bg-green-500"
+              >
                 Like
               </button>
             </div>

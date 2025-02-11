@@ -41,7 +41,6 @@ const AuthProvider = ({ children }) => {
     }
   }, [isDark]);
 
-  console.log(isDark);
 
   const createUser = (email, password) => {
     setLoading(true);
