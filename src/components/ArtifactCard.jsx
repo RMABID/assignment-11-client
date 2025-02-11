@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const ArtifactCard = ({ id, image, name, created, location, discovered }) => {
   return (
-    <div className="my-8">
-      <div className="text-gray-700 transition ease-in-out hover:scale-110 cursor-pointer ">
+    <div className="my-8 ">
+      <div className="text-gray-700 dark:text-white transition ease-in-out hover:scale-110 cursor-pointer ">
         <div className="overflow-hidden border rounded-b-lg border-primary ">
           <div>
             <img
@@ -26,7 +26,8 @@ const ArtifactCard = ({ id, image, name, created, location, discovered }) => {
               {discovered}
             </p>
             <p className="text-sm flex items-center font-light">
-              <span className="text-lg mr-2">Location : </span> {location}</p>
+              <span className="text-lg mr-2">Location : </span> {location}
+            </p>
           </div>
           <div className="mt-2">
             <Link

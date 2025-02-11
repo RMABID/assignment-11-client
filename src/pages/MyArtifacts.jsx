@@ -68,7 +68,7 @@ const MyArtifacts = () => {
           </div>
         </div>
       ) : (
-        <div className="overflow-x-auto my-14 ">
+        <div className="overflow-x-auto my-14 dark:text-white">
           <h1 className="text-xl my-8 font-Garamond font-bold">
             My Artifacts{" "}
             <span className="bg-green-500  text-sm px-3 p-1 font-light rounded-full">
