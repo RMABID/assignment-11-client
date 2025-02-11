@@ -12,7 +12,7 @@ const Home = () => {
     document.title = "Home - Historical Artifacts Tracker";
   }, []);
   return (
-    <div>
+    <div className="dark:bg-black dark:text-white">
       <header className="">
         <Navbar></Navbar>
       </header>
