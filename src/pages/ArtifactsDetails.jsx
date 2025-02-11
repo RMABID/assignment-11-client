@@ -8,7 +8,6 @@ import { SlLike } from "react-icons/sl";
 const ArtifactsDetails = () => {
   const { user } = useAuth();
   const [artifacts, setArtifacts] = useState({});
-  const [isLike, setIsLike] = useState(false);
 
   const { id } = useParams();
 
@@ -48,7 +47,6 @@ const ArtifactsDetails = () => {
       artifact_name,
       historical_context,
       like_count,
-      isLike,
     };
 
     try {
@@ -63,7 +61,6 @@ const ArtifactsDetails = () => {
       toast.error(error?.response?.data);
     }
   };
-  console.log(isLike);
 
   return (
     <div>
@@ -113,10 +110,7 @@ const ArtifactsDetails = () => {
               </span>{" "}
             </button>
             <div>
-              <button
-                onClick={() => likeHandler(setIsLike(!isLike))}
-                className="btn w-20 bg-green-500"
-              >
+              <button onClick={likeHandler} className="btn w-20 bg-green-500">
                 Like
               </button>
             </div>
