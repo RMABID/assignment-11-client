@@ -16,7 +16,7 @@ const About = () => {
         </div>
       </Fade>
       <Fade direction="up">
-        <div>
+        <div className="dark:text-white">
           <h1 className="text-4xl my-4 font-Garamond  mx-auto font-bold text-center">
             About Us
           </h1>
